@@ -23,6 +23,7 @@ TODO: Pic
   3. You should be able to login to the pi and connect to the internet (`curl -I google.com`)
 3. Login to the pi and install and run demo software
   1. Step 6: https://learn.adafruit.com/adafruit-rgb-matrix-plus-real-time-clock-hat-for-raspberry-pi/driving-matrices 
-4. SCP files from this directory into the rpi directory and try them out!
+4. SCP files from this directory into the `rpi-` directory
+  1. Create an auth.json file with your jenkins login info   
   
     
