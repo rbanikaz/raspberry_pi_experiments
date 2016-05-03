@@ -25,5 +25,5 @@ TODO: Pic
   1. Step 6: https://learn.adafruit.com/adafruit-rgb-matrix-plus-real-time-clock-hat-for-raspberry-pi/driving-matrices 
 4. SCP files from this directory into the `rpi-` directory
   1. Create an auth.json file with your jenkins login info   
-  
+  2. Enjoy!
     
