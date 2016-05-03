@@ -12,8 +12,8 @@ def get_build_status():
   auth = '%s:%s' % (config["username"], config["password"])
   header = b'Basic ' + base64.b64encode(auth)
 
-  jenkinsUrl = "http://jenkins.insidevault.com/job/"
-  jobName = "qm2"
+  jenkinsUrl = config["url"]
+  jobName = config["job"]
 
   try:
     url = jenkinsUrl + jobName + "/lastBuild/api/json"
