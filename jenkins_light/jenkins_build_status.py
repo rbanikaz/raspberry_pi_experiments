@@ -29,7 +29,6 @@ def get_build_status():
     resp = urllib2.urlopen(req).read()
   except urllib2.HTTPError, e:
     print "URL Error: " + str(e.code) 
-    print "      (job name [" + jobName + "] probably wrong)"
     return "ERROR"
 
   try:
