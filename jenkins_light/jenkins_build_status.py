@@ -11,6 +11,9 @@ from rgbmatrix import Adafruit_RGBmatrix
 
 CHECKMARK= u'\u2714'
 CROSS= u'\u2716'
+RED = (255,0,0)
+GREEN = (0,255,0)
+YELLOW = (255,255,0)
 
 def get_build_status(user, pw, url, job):
   auth = '%s:%s' % (user, pw)
@@ -27,7 +30,7 @@ def get_build_status(user, pw, url, job):
     print "URL Error: " + str(e.code) 
     return "ERROR"
   except ValueError as err:
-    print "ERROR" + err
+    print "JSON ERROR " + err
     return "ERROR"
     
   if buildStatus["building"]:
@@ -45,13 +48,13 @@ def draw_image(job, build_status):
   
   if build_status == "SUCCESS":
     symbol = CHECKMARK
-    color = (0,255,0)
+    color = GREEN
   elif build_status == "BUILD_INPROGRESS":
     symbol = None
-    color = (255,255,0)
+    color = YELLOW
   else:
     symbol = CROSS
-    color = (255,0,0)
+    color = RED
   
   width_text = freesans.getsize(job)[0]
   width = width_text
@@ -84,7 +87,7 @@ def main():
   while 1:
     build_status = get_build_status(un, pw, url, job)
     
-    if !images[build_status]:
+    if build_status not in images:
        images[build_status] = draw_image(job, build_status)
        
     image = images[build_status]
