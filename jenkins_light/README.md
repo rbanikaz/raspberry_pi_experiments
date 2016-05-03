@@ -1,6 +1,8 @@
 #Jenkins Build Status LED Matrix
 
-TODO: Pic
+![Light](pics/jenkins_light.jpg)
+[Video](pics/jenkins_light_video.mp4)
+
 
 ###Hardware:
 * Raspberry Pi 2, Model B
