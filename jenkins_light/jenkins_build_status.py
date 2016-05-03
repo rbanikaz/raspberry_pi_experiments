@@ -99,11 +99,11 @@ def main():
       time.sleep(0.05)
 
     # Flash 3 times
-    for n in range(0, 2):
+    for n in range(0, 3):
+      time.sleep(1)
       matrix.Clear()
       time.sleep(1)
       matrix.SetImage(image.im.id, 0, 0)
-      time.sleep(1)
 
     # Stand for 1 min
     time.sleep(60)
