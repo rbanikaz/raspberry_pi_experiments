@@ -14,7 +14,12 @@ class TickerData():
     def retrieve_rates(self, symbol):
         cur = self.connection.cursor()
         cur.execute(RETRIEVE_RATES_SQL, [symbol])
-        return cur.fetchone()
+        result = cur.fetchone()
+        return {
+            "symbol": result[0],
+            "open_price": result[1],
+            "close_price": result[2]
+        }
 
 
     def insert_rates(self, data):
@@ -38,7 +43,7 @@ CREATE_TABLE_SQL = """
 
 RETRIEVE_RATES_SQL = """
     SELECT m.symbol, min.price, max.price FROM
-    (SELECT symbol, MIN(timestamp) as min_timestamp, MAX(timestamp) as max_timestamp FROM rates_usd) as m
+    (SELECT symbol, MIN(timestamp) as min_timestamp, MAX(timestamp) as max_timestamp FROM rates_usd group by 1) as m
     JOIN rates_usd min ON min.symbol = m.symbol AND min.timestamp = m.min_timestamp
     JOIN rates_usd max ON max.symbol = m.symbol AND max.timestamp = m.max_timestamp
     WHERE m.symbol = ?

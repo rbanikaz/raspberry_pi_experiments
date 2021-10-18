@@ -18,13 +18,13 @@ def test_crud():
     ticker_data.insert_rates(fake_data)
     rates = ticker_data.retrieve_rates("BTC")
     print(rates)
-    assert rates == ('BTC', 60000.0, 63000.0)
+    assert rates == {"symbol": 'BTC', "open_price": 60000.0, "close_price": 63000.0}
     
     ticker_data.purge_rates("2021-10-15 00:00:00")
 
     rates = ticker_data.retrieve_rates("BTC")
     print(rates)
-    assert rates == ('BTC', 59000.0, 63000.0)
+    assert rates == {"symbol": 'BTC', "open_price": 59000.0, "close_price": 63000.0}
 
     con.close()
 
